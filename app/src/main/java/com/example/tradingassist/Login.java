@@ -22,6 +22,7 @@ public class Login extends AppCompatActivity {
     TextView register;
     Button login;
 
+    // Using of fireBase Authentication class.
     FirebaseAuth mAuth;
 
     @Override
@@ -36,32 +37,45 @@ public class Login extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
 
+        // Setting a OnClickListener for login button
         login.setOnClickListener(view->{
             loginUser();
         });
 
+        // Setting a OnClickListener for register button
         register.setOnClickListener(view->{
             startActivity(new Intent(Login.this,Register.class));
         });
     }
 
     private void loginUser() {
+
+        // Storing the value in string format.
         String eml = email.getText().toString();
         String pass = password.getText().toString();
 
+        // Setting error if email is empty
         if(TextUtils.isEmpty(eml)){
             email.setError("Email can't be empty");
             email.requestFocus();
+
+            // Setting error if password is empty.
         }else if(TextUtils.isEmpty(pass)) {
             password.setError("Password can't be empty");
             password.requestFocus();
+
+            // Using firebase Authenticaiton class to login using signInWithEmailAndPassword method.
         } else {
             mAuth.signInWithEmailAndPassword(eml,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
+
+                    // if successful then taking them to mainActivity.
                     if(task.isSuccessful()){
                         Toast.makeText(Login.this,"User login successfull",Toast.LENGTH_LONG).show();
                         startActivity(new Intent(Login.this,MainActivity.class));
+
+                        // if task is unsuccessful,the we print the error message in the form of toast.
                     } else {
                         Toast.makeText(Login.this,"Login Error"+task.getException().getMessage(),Toast.LENGTH_LONG).show();
                     }

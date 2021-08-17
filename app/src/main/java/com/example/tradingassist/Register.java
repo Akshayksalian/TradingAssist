@@ -22,6 +22,7 @@ public class Register extends AppCompatActivity {
     TextView login;
     Button register;
 
+    // Using of fireBase Authentication class.
     FirebaseAuth mAuth;
 
     @Override
@@ -36,33 +37,48 @@ public class Register extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        // Setting a OnClickListener for register button
         register.setOnClickListener(view->{
+            // this will call createUser method.
             createUser();
         });
 
+        // Setting a OnClickListener for Login button
         login.setOnClickListener(view->{
+            // This will navigate the user to login page
             startActivity(new Intent(Register.this,Login.class));
         });
 
     }
 
     private void createUser() {
+
+        // Storing the value in string format.
         String eml = email.getText().toString();
         String pass = password.getText().toString();
 
+        // Setting error if email is empty
         if(TextUtils.isEmpty(eml)){
             email.setError("Email can't be empty");
             email.requestFocus();
+
+            // Setting error if password is empty.
         }else if(TextUtils.isEmpty(pass)) {
             password.setError("Password can't be empty");
             password.requestFocus();
+
+            // Using firebase Authenticaiton class to register using createUserWithEmailAndPassword method.
         } else {
             mAuth.createUserWithEmailAndPassword(eml,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
+
+                    // when everything is good showing them toast and taking user into the login page.
                     if(task.isSuccessful()){
                         Toast.makeText(Register.this,"User registered successfully",Toast.LENGTH_LONG).show();
                         startActivity(new Intent(Register.this,Login.class));
+
+                        // if something goes wrong ,then we shows the user the error in the toast format.
                     } else {
                         Toast.makeText(Register.this,"Registeration Error"+task.getException().getMessage(),Toast.LENGTH_LONG).show();
                     }

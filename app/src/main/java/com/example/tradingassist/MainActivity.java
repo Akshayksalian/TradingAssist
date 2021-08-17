@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button logout;
 
+    // Using of fireBase Authentication class.
     FirebaseAuth mAuth;
 
     @Override
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         // Initializing fire base auth into onCreate method.
         mAuth=FirebaseAuth.getInstance();
 
+        // clicklistener for logout button.
         logout.setOnClickListener(view ->{
             mAuth.signOut();
             startActivity(new Intent(MainActivity.this,Login.class));
