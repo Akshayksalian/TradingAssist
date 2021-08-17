@@ -1,0 +1,2 @@
+rootProject.name = "TradingAssist"
+include ':app'

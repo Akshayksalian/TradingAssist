@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "109332295873",
+    "project_id": "tradingassist-5dcbd",
+    "storage_bucket": "tradingassist-5dcbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109332295873:android:a09eb16b560a74a84b2440",
+        "android_client_info": {
+          "package_name": "com.example.tradingassist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "109332295873-ba4p04fclfg0n9rlhobrget45ef5rgv4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ0GtIHSeuYjZX7zWK8f_1tpaeJI6GcVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "109332295873-ba4p04fclfg0n9rlhobrget45ef5rgv4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
