@@ -11,4 +11,7 @@
     <color name ="Text">#616161</color>
     <color name ="Red">#8e0000</color>
     <color name ="Green">#003300</color>
+    <color name ="card_background">#efebe9</color>
+    <color name ="toolbar_background">#546e7a</color>
+
 </resources>
